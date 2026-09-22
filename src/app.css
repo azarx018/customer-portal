@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	box-sizing: border-box;
+	padding-top: env(safe-area-inset-top, 0px);
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+html,
+body {
+	height: 100%;
+	background-color: #f6f5f1;
+	overscroll-behavior-y: none;
+}
+
+body {
+	@apply font-sans text-ink antialiased;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+/* Fokus keyboard tetap terlihat jelas — jangan dihapus demi estetika */
+:focus-visible {
+	outline: 2px solid #2fb897;
+	outline-offset: 2px;
+}
+
+button {
+	font-family: inherit;
+}
