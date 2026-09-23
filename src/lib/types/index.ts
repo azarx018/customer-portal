@@ -10,6 +10,19 @@ export interface Package {
 	price: number; // dalam Rupiah
 	description?: string;
 	active: boolean;
+	// Data-driven, BUKAN dihardcode di komponen — supaya pas admin panel
+	// nambah/ubah paket, badge "Paling Laris" ikut pindah tanpa ubah kode.
+	// Kolom ini yang nanti jadi kolom di tabel `packages` versi database.
+	highlight?: 'popular';
+}
+
+export interface PromoBanner {
+	id: string;
+	title: string;
+	description: string;
+	ctaLabel: string;
+	href: string;
+	active: boolean;
 }
 
 export type AuthMode = 'voucher' | 'member';

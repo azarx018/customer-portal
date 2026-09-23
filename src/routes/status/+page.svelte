@@ -31,7 +31,7 @@
 </svelte:head>
 
 <div class="mx-auto w-full max-w-xl px-5 pt-8 lg:pt-14">
-	<h1 class="text-xl font-semibold text-ink">Status Internet</h1>
+	<h1 class="text-xl font-semibold text-ink lg:text-2xl">Status Internet</h1>
 
 	<div class="mt-6">
 		{#if loading || !session}

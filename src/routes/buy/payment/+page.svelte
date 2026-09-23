@@ -67,24 +67,27 @@
 	<title>Pembayaran — WiFiNet</title>
 </svelte:head>
 
-<div class="mx-auto w-full max-w-xl px-5 pt-8 lg:pt-14">
-	<h1 class="text-xl font-semibold text-ink">Pembayaran</h1>
+<div class="mx-auto w-full max-w-3xl px-5 pt-8 lg:pt-14">
+	<h1 class="text-xl font-semibold text-ink lg:text-2xl">Pembayaran</h1>
 
-	<div class="mt-6 flex flex-col gap-4">
+	<div class="mt-6">
 		{#if loading || !order}
 			<LoadingState message="Menyiapkan pembayaran..." />
 		{:else}
-			<PaymentSummary pkg={order.package} />
-			<QrisPayment {secondsRemaining} {status} />
+			<div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-6">
+				<div class="lg:w-[45%] lg:shrink-0">
+					<PaymentSummary pkg={order.package} />
+				</div>
+				<div class="flex-1">
+					<QrisPayment {secondsRemaining} {status} />
+				</div>
+			</div>
 
 			{#if status === 'expired'}
-				<p class="rounded-card border border-danger/30 bg-danger-dim px-4 py-3 text-center text-sm text-danger">
+				<p class="mt-4 rounded-card border border-danger/30 bg-danger-dim px-4 py-3 text-center text-sm text-danger">
 					Waktu pembayaran habis. Silakan pilih paket lagi.
 				</p>
-				<a
-					href="/buy"
-					class="text-center text-sm font-medium text-signal"
-				>
+				<a href="/buy" class="mt-3 block text-center text-sm font-medium text-signal">
 					Pilih paket lagi
 				</a>
 			{/if}

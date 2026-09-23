@@ -18,7 +18,8 @@ export const mockPackages: Package[] = [
 		durationSeconds: 3 * 3600,
 		speed: '10 Mbps',
 		price: 5000,
-		active: true
+		active: true,
+		highlight: 'popular'
 	},
 	{
 		id: '6h',
