@@ -11,6 +11,14 @@ const mockBanners: PromoBanner[] = [
 		ctaLabel: 'Lihat Paket',
 		href: '#package-1d',
 		active: true
+	},
+	{
+		id: 'promo-member',
+		title: 'Daftar Jadi Member',
+		description: 'Login pakai akun member, gak perlu beli voucher tiap kali mau internetan.',
+		ctaLabel: 'Selengkapnya',
+		href: '/login',
+		active: true
 	}
 ];
 

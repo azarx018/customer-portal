@@ -23,6 +23,9 @@ export interface PromoBanner {
 	ctaLabel: string;
 	href: string;
 	active: boolean;
+	// Opsional — kalau kosong, banner fallback ke icon (lihat PromoBanner.svelte).
+	// Nanti diisi lewat upload gambar di admin panel.
+	imageUrl?: string;
 }
 
 export type AuthMode = 'voucher' | 'member';

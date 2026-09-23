@@ -57,8 +57,14 @@
 	</div>
 
 	{#if banners.length > 0}
-		<div class="mt-5 lg:mt-8">
-			<PromoBanner banner={banners[0]} />
+		<div class="mt-5 -mx-5 px-5 lg:mt-8 lg:mx-0 lg:px-0">
+			<div class="scrollbar-hide flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1">
+				{#each banners as banner (banner.id)}
+					<div class="w-[85%] shrink-0 snap-start sm:w-[420px]">
+						<PromoBanner {banner} />
+					</div>
+				{/each}
+			</div>
 		</div>
 	{/if}
 

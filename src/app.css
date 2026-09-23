@@ -61,3 +61,14 @@ button {
 		animation: none;
 	}
 }
+
+/* Dipakai buat carousel banner promo yang bisa digeser (swipe) — scroll
+   tetap jalan normal, cuma scrollbar bawaan browser-nya disembunyikan. */
+.scrollbar-hide {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
