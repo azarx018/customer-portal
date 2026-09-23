@@ -33,7 +33,7 @@
 
 <div class="flex flex-col">
 	<!-- HERO -->
-	<div class="relative overflow-hidden bg-gradient-to-br from-ink via-ink to-ink-soft px-6 pb-20 pt-8">
+	<div class="relative z-0 overflow-hidden rounded-b-[40px] bg-gradient-to-br from-ink via-ink to-ink-soft px-6 pb-20 pt-8">
 		<!-- Ilustrasi jaringan abstrak — ringan (SVG murni), bukan foto stok -->
 		<svg
 			class="pointer-events-none absolute -right-6 top-16 h-40 w-40 text-paper/10"
@@ -100,7 +100,7 @@
 
 	<!-- LOGIN CARD (overlap ke hero) -->
 	<div class="flex flex-1 flex-col px-6">
-		<div class="animate-fade-up -mt-10 rounded-card bg-surface p-5 shadow-floating">
+		<div class="animate-fade-up relative z-10 -mt-10 rounded-card bg-surface p-5 shadow-floating">
 			<div class="mb-5">
 				<AuthTabs bind:mode />
 			</div>
