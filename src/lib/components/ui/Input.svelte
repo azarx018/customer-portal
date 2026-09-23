@@ -8,7 +8,7 @@
 	export let error: string | undefined = undefined;
 
 	const inputClass =
-		'w-full rounded-2xl border bg-surface px-4 py-3.5 text-[15px] text-ink placeholder:text-muted focus:border-signal focus:outline-none focus:ring-2 focus:ring-signal/20';
+		'w-full rounded-2xl border bg-surface px-4 py-3.5 text-[15px] text-ink placeholder:text-muted focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/25';
 </script>
 
 <label for={id} class="block">

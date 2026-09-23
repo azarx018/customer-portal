@@ -35,6 +35,6 @@
 
 	<p class="text-center text-sm text-muted">
 		Belum punya kode?
-		<a href="/buy" class="font-medium text-signal">Beli sekarang</a>
+		<a href="/buy" class="font-semibold text-gold-deep">Beli sekarang</a>
 	</p>
 </form>

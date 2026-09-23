@@ -11,7 +11,7 @@
 	<div class="min-w-0">
 		<p class="text-base font-semibold text-ink">{pkg.duration}</p>
 		<p class="text-sm text-muted">{pkg.speed}</p>
-		<p class="mt-1 text-lg font-semibold text-signal">{formatCurrency(pkg.price)}</p>
+		<p class="mt-1 text-lg font-semibold text-ink">{formatCurrency(pkg.price)}</p>
 	</div>
 	<Button variant="primary" fullWidth={false} on:click={() => onSelect(pkg)}>Beli</Button>
 </div>

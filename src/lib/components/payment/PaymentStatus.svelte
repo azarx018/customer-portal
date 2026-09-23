@@ -4,7 +4,7 @@
 	export let status: PaymentStatus;
 
 	const config: Record<PaymentStatus, { label: string; dot: string; text: string }> = {
-		pending: { label: 'Checking...', dot: 'bg-signal animate-pulse', text: 'text-muted' },
+		pending: { label: 'Checking...', dot: 'bg-gold animate-pulse', text: 'text-gold-deep' },
 		paid: { label: 'Pembayaran diterima', dot: 'bg-signal', text: 'text-signal' },
 		failed: { label: 'Pembayaran gagal', dot: 'bg-danger', text: 'text-danger' },
 		expired: { label: 'Waktu pembayaran habis', dot: 'bg-danger', text: 'text-danger' }

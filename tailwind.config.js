@@ -4,17 +4,23 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				ink: '#12203B', // navy dalam — teks utama & brand
-				paper: '#F6F5F1', // latar utama, netral hangat (bukan cream/terracotta)
+				ink: '#211B4E', // indigo dalam — brand utama, terasa premium bukan sekadar navy korporat
+				'ink-soft': '#372E6E',
+				paper: '#F6F4FB', // latar utama, putih dengan sentuhan lavender halus
 				surface: '#FFFFFF',
-				signal: {
-					DEFAULT: '#2FB897', // teal sinyal — aksen utama, terasa "terhubung/aktif"
-					dim: '#E4F5F0'
+				gold: {
+					DEFAULT: '#D6A64B', // aksen premium — dipakai buat elemen interaktif/terpilih
+					dim: '#FBF1DC',
+					deep: '#9C7422'
 				},
-				line: '#E4E1D8',
-				muted: '#8A8677',
-				danger: '#D64545',
-				'danger-dim': '#FBEAEA'
+				signal: {
+					DEFAULT: '#1FB878', // hijau — khusus makna "terhubung/berhasil", bukan dekorasi umum
+					dim: '#E1F7EC'
+				},
+				line: '#E7E3F2',
+				muted: '#726C8C',
+				danger: '#E0525B',
+				'danger-dim': '#FCEAEA'
 			},
 			fontFamily: {
 				sans: [
@@ -28,12 +34,13 @@ export default {
 				]
 			},
 			borderRadius: {
-				card: '20px',
+				card: '24px',
 				pill: '999px'
 			},
 			boxShadow: {
-				card: '0 1px 2px rgba(18, 32, 59, 0.04), 0 8px 24px rgba(18, 32, 59, 0.06)',
-				nav: '0 8px 28px rgba(18, 32, 59, 0.14)'
+				card: '0 1px 2px rgba(33, 27, 78, 0.04), 0 12px 28px rgba(33, 27, 78, 0.08)',
+				nav: '0 10px 30px rgba(33, 27, 78, 0.22)',
+				floating: '0 20px 45px rgba(33, 27, 78, 0.16)'
 			}
 		}
 	},

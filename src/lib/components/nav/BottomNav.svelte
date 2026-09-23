@@ -11,6 +11,8 @@
 		if (href === '/buy') return pathname.startsWith('/buy');
 		return pathname === href;
 	}
+
+	$: activeIndex = items.findIndex((item) => isActive(item.href, $page.url.pathname));
 </script>
 
 <nav
@@ -18,16 +20,23 @@
 	style="padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));"
 	aria-label="Navigasi utama"
 >
-	<div class="flex w-full max-w-sm items-stretch justify-between gap-1 rounded-pill bg-ink px-2 py-2 shadow-nav">
-		{#each items as item (item.href)}
-			{@const active = isActive(item.href, $page.url.pathname)}
+	<div class="relative flex w-full max-w-sm items-stretch rounded-pill bg-ink p-2 shadow-nav">
+		{#if activeIndex >= 0}
+			<div
+				class="absolute inset-y-2 left-2 w-[calc((100%-1rem)/3)] rounded-pill bg-gold transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+				style="transform: translateX({activeIndex * 100}%)"
+				aria-hidden="true"
+			></div>
+		{/if}
+		{#each items as item, i (item.href)}
+			{@const active = i === activeIndex}
 			<a
 				href={item.href}
-				class="flex flex-1 flex-col items-center gap-0.5 rounded-pill px-3 py-2 text-xs font-medium transition
-					{active ? 'bg-signal text-ink' : 'text-paper/70 hover:text-paper'}"
+				class="relative z-10 flex flex-1 flex-col items-center gap-0.5 rounded-pill px-3 py-2 text-xs font-medium transition-all duration-300 ease-out active:scale-90
+					{active ? 'text-ink' : 'text-paper/60 hover:text-paper'}"
 				aria-current={active ? 'page' : undefined}
 			>
-				<span class="h-5 w-5" aria-hidden="true">
+				<span class="h-5 w-5 transition-transform duration-300 {active ? 'scale-110' : ''}" aria-hidden="true">
 					{#if item.icon === 'login'}
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
