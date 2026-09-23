@@ -16,10 +16,21 @@
 	$: showBottomNav = $appModeStore === 'application';
 </script>
 
-<div class="mx-auto flex w-full max-w-md flex-col bg-paper" style="min-height: 100dvh;">
-	<main class={showBottomNav ? 'pb-28' : ''}>
-		<slot />
-	</main>
+<!--
+	Wrapper luar: cuma buat nyentering panel di layar lebar (sm ke atas).
+	Tinggi penuh (100dvh) sengaja cuma dipasang SEKALI di panel dalam —
+	sebelumnya dipasang dobel (di sini + di tiap halaman) dan itu yang
+	bikin dokumen jadi lebih tinggi dari viewport, sehingga bottom nav
+	yang fixed nutupin konten yang belum ke-scroll.
+-->
+<div class="flex justify-center bg-backdrop min-[28rem]:py-10">
+	<div
+		class="flex min-h-[100dvh] w-full max-w-md flex-col bg-paper min-[28rem]:min-h-0 min-[28rem]:overflow-hidden min-[28rem]:rounded-[32px] min-[28rem]:border min-[28rem]:border-line min-[28rem]:shadow-floating"
+	>
+		<main class={showBottomNav ? 'pb-28' : ''}>
+			<slot />
+		</main>
+	</div>
 
 	{#if showBottomNav}
 		<BottomNav />

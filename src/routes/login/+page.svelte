@@ -31,7 +31,7 @@
 	<title>Login — WiFiNet</title>
 </svelte:head>
 
-<div class="flex min-h-[100dvh] flex-col overflow-hidden">
+<div class="flex flex-col">
 	<!-- HERO -->
 	<div class="relative overflow-hidden bg-gradient-to-br from-ink via-ink to-ink-soft px-6 pb-20 pt-8">
 		<!-- Ilustrasi jaringan abstrak — ringan (SVG murni), bukan foto stok -->

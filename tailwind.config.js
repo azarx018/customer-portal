@@ -6,7 +6,8 @@ export default {
 			colors: {
 				ink: '#211B4E', // indigo dalam — brand utama, terasa premium bukan sekadar navy korporat
 				'ink-soft': '#372E6E',
-				paper: '#F6F4FB', // latar utama, putih dengan sentuhan lavender halus
+				paper: '#F6F4FB', // latar utama app, putih dengan sentuhan lavender halus
+				backdrop: '#E9E6F3', // latar DI LUAR panel app (cuma kepakai di layar sm ke atas)
 				surface: '#FFFFFF',
 				gold: {
 					DEFAULT: '#D6A64B', // aksen premium — dipakai buat elemen interaktif/terpilih
