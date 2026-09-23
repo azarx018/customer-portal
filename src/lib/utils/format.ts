@@ -15,6 +15,17 @@ export function formatCountdown(totalSeconds: number): string {
 	return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
+export function formatDataUsage(mb: number): string {
+	if (mb >= 1024) {
+		return `${(mb / 1024).toFixed(1)} GB`;
+	}
+	return `${Math.round(mb)} MB`;
+}
+
+export function formatClockTime(iso: string): string {
+	return new Date(iso).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+}
+
 /**
  * Persen hemat dibanding baseline (biasanya paket dengan durasi terpendek),
  * dihitung dari tarif per detik masing-masing paket. Murni kalkulasi dari

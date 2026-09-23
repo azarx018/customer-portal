@@ -68,13 +68,18 @@
 		</div>
 	{/if}
 
-	<div class="mt-6 lg:mt-8">
+	<div class="animate-fade-up mt-6 lg:mt-8">
 		{#if loading}
 			<LoadingState message="Memuat paket..." />
 		{:else if loadError}
-			<p class="rounded-card border border-danger/30 bg-danger-dim px-4 py-3 text-sm text-danger">
+			<div class="flex items-center gap-3 rounded-card border border-danger/30 bg-danger-dim px-4 py-3 text-sm text-danger">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 shrink-0">
+					<circle cx="12" cy="12" r="9" />
+					<path d="M12 8v5" />
+					<path d="M12 16h.01" />
+				</svg>
 				{loadError}
-			</p>
+			</div>
 		{:else}
 			<PackageList {packages} onSelect={handleSelect} />
 		{/if}

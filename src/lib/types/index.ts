@@ -55,4 +55,12 @@ export interface CustomerSession {
 	totalSeconds: number;
 	speed: string;
 	packageName?: string;
+	// Nanti dari MikroTik: /ip/hotspot/active/print → bytes-in + bytes-out.
+	dataUsedMB?: number;
+	// Nanti dari MikroTik: uptime sesi aktif.
+	connectedAt?: string; // ISO timestamp
+	// Nanti dari backend: gimana sesi ini diaktivasi.
+	source?: AuthMode;
+	// ID order/sesi buat referensi kalau user hubungi CS.
+	sessionId?: string;
 }

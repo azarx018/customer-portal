@@ -74,7 +74,7 @@
 		{#if loading || !order}
 			<LoadingState message="Menyiapkan pembayaran..." />
 		{:else}
-			<div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-6">
+			<div class="animate-fade-up flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-6">
 				<div class="lg:w-[45%] lg:shrink-0">
 					<PaymentSummary pkg={order.package} />
 				</div>
@@ -84,12 +84,25 @@
 			</div>
 
 			{#if status === 'expired'}
-				<p class="mt-4 rounded-card border border-danger/30 bg-danger-dim px-4 py-3 text-center text-sm text-danger">
-					Waktu pembayaran habis. Silakan pilih paket lagi.
-				</p>
-				<a href="/buy" class="mt-3 block text-center text-sm font-medium text-signal">
-					Pilih paket lagi
-				</a>
+				<div class="animate-fade-up mt-4 flex flex-col items-center gap-3 rounded-card border border-danger/30 bg-danger-dim p-5 text-center">
+					<span class="flex h-10 w-10 items-center justify-center rounded-full bg-danger/15 text-danger" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+							<circle cx="12" cy="12" r="9" />
+							<path d="M12 8v5" />
+							<path d="M12 16h.01" />
+						</svg>
+					</span>
+					<div>
+						<p class="text-sm font-semibold text-danger">Waktu pembayaran habis</p>
+						<p class="mt-0.5 text-xs text-danger/80">Silakan pilih paket lagi untuk melanjutkan.</p>
+					</div>
+					<a
+						href="/buy"
+						class="mt-1 rounded-full bg-danger px-4 py-2 text-xs font-semibold text-paper transition-colors duration-200 hover:bg-danger/90"
+					>
+						Pilih paket lagi
+					</a>
+				</div>
 			{/if}
 		{/if}
 	</div>

@@ -7,6 +7,7 @@
 	// yang membaca sisa waktu asli dari MikroTik). Komponen ini tidak pernah
 	// menghitung sendiri dari nol.
 	export let remainingSeconds: number;
+	export let warn = false;
 
 	let displaySeconds = remainingSeconds;
 	let interval: ReturnType<typeof setInterval>;
@@ -22,6 +23,6 @@
 	onDestroy(() => clearInterval(interval));
 </script>
 
-<p class="text-4xl font-semibold tabular-nums text-ink" aria-live="polite">
+<p class="text-4xl font-semibold tabular-nums {warn ? 'text-danger' : 'text-ink'}" aria-live="polite">
 	{formatCountdown(displaySeconds)}
 </p>

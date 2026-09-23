@@ -19,7 +19,7 @@
 	<title>Pembayaran Berhasil — WiFiNet</title>
 </svelte:head>
 
-<div class="mx-auto flex min-h-[70vh] w-full max-w-xl flex-col items-center justify-center gap-6 px-6 text-center">
+<div class="animate-fade-up mx-auto flex min-h-[70vh] w-full max-w-xl flex-col items-center justify-center gap-6 px-6 text-center">
 	<div
 		class="flex h-16 w-16 items-center justify-center rounded-full bg-signal-dim text-signal"
 		aria-hidden="true"
@@ -39,16 +39,31 @@
 	{#if pkg}
 		<div class="w-full rounded-card border border-line bg-surface p-5 text-left shadow-card">
 			<div class="flex items-center justify-between border-b border-line pb-3">
-				<span class="text-sm text-muted">Package</span>
+				<span class="flex items-center gap-1.5 text-sm text-muted">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+						<circle cx="12" cy="12" r="9" />
+						<path d="M12 7v5l3 3" />
+					</svg>
+					Paket
+				</span>
 				<span class="font-medium text-ink">{pkg.duration}</span>
 			</div>
 			<div class="flex items-center justify-between border-b border-line py-3">
-				<span class="text-sm text-muted">Speed</span>
+				<span class="flex items-center gap-1.5 text-sm text-muted">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+						<path d="M4 15a8 8 0 0 1 16 0" />
+						<path d="M12 15l4-5" />
+					</svg>
+					Kecepatan
+				</span>
 				<span class="font-medium text-ink">{pkg.speed}</span>
 			</div>
 			<div class="flex items-center justify-between pt-3">
 				<span class="text-sm text-muted">Status</span>
-				<span class="font-medium text-signal">Active</span>
+				<span class="flex items-center gap-1.5 font-medium text-signal">
+					<span class="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden="true"></span>
+					Aktif
+				</span>
 			</div>
 		</div>
 	{/if}
