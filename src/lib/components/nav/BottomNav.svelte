@@ -52,9 +52,9 @@
 						</svg>
 					{:else}
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M4 18v-3a8 8 0 0 1 16 0v3" />
-							<path d="M2 18h4v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-3z" />
-							<path d="M18 18h4v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3z" />
+							<path d="M5 12.5a10 10 0 0 1 14 0" />
+							<path d="M8 16a5.5 5.5 0 0 1 8 0" />
+							<circle cx="12" cy="19.5" r="1.2" fill="currentColor" stroke="none" />
 						</svg>
 					{/if}
 				</span>
