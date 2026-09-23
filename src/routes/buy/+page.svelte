@@ -31,7 +31,7 @@
 	<title>Pilih Paket — WiFiNet</title>
 </svelte:head>
 
-<div class="px-5 pt-8">
+<div class="mx-auto w-full max-w-xl px-5 pt-8 lg:pt-14">
 	<h1 class="text-xl font-semibold text-ink">Pilih Paket</h1>
 	<p class="mt-1 text-sm text-muted">Pilih durasi dan kecepatan yang sesuai kebutuhanmu.</p>
 

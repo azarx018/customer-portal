@@ -31,9 +31,10 @@
 	<title>Login — WiFiNet</title>
 </svelte:head>
 
-<div class="flex flex-col">
+<div class="flex flex-col lg:min-h-[100dvh] lg:flex-row">
 	<!-- HERO -->
-	<div class="relative z-0 overflow-hidden rounded-b-[40px] bg-gradient-to-br from-ink via-ink to-ink-soft px-6 pb-20 pt-8">
+	<div class="relative z-0 overflow-hidden rounded-b-[40px] bg-gradient-to-br from-ink via-ink to-ink-soft px-6 pb-20 pt-8
+		lg:w-[46%] lg:shrink-0 lg:rounded-b-none lg:rounded-r-[56px] lg:flex lg:flex-col lg:justify-center lg:px-16 lg:pb-0 lg:pt-0">
 		<!-- Ilustrasi jaringan abstrak — ringan (SVG murni), bukan foto stok -->
 		<svg
 			class="pointer-events-none absolute -right-6 top-16 h-40 w-40 text-paper/10"
@@ -63,17 +64,17 @@
 		</div>
 
 		<!-- Headline -->
-		<div class="relative mt-8">
-			<h1 class="text-3xl font-semibold leading-tight text-paper">
+		<div class="relative mt-8 lg:mt-0">
+			<h1 class="text-3xl font-semibold leading-tight text-paper lg:text-[2.75rem]">
 				Nikmati Internet<br />Tanpa Batas
 			</h1>
-			<p class="mt-2 max-w-[85%] text-sm text-paper/70">
+			<p class="mt-2 max-w-[85%] text-sm text-paper/70 lg:max-w-sm lg:text-base">
 				Akses cepat dan stabil untuk aktivitas online kamu.
 			</p>
 		</div>
 
 		<!-- Benefit micro section -->
-		<div class="relative mt-6 flex gap-4">
+		<div class="relative mt-6 flex gap-4 lg:mt-10 lg:max-w-sm lg:flex-wrap lg:gap-y-4">
 			{#each benefits as benefit (benefit.label)}
 				<div class="flex items-center gap-2">
 					<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-paper/10 text-paper" aria-hidden="true">
@@ -98,9 +99,10 @@
 		</div>
 	</div>
 
-	<!-- LOGIN CARD (overlap ke hero) -->
-	<div class="flex flex-1 flex-col px-6">
-		<div class="animate-fade-up relative z-10 -mt-10 rounded-card bg-surface p-5 shadow-floating">
+	<!-- LOGIN CARD (overlap ke hero di mobile; jadi kolom kanan polos di layar lebar) -->
+	<div class="flex flex-1 flex-col px-6 lg:items-center lg:justify-center lg:px-16 lg:py-16">
+		<div class="animate-fade-up relative z-10 -mt-10 rounded-card bg-surface p-5 shadow-floating
+			lg:static lg:z-auto lg:mt-0 lg:w-full lg:max-w-md lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none">
 			<div class="mb-5">
 				<AuthTabs bind:mode />
 			</div>
@@ -139,7 +141,7 @@
 		</div>
 
 		<!-- Trust row -->
-		<div class="mt-6 flex items-start justify-between gap-2 px-1 text-center">
+		<div class="mt-6 flex items-start justify-between gap-2 px-1 text-center lg:w-full lg:max-w-md">
 			{#each trustPoints as point, i (point.label)}
 				<div class="flex flex-1 flex-col items-center gap-1.5 {i > 0 ? 'border-l border-line pl-2' : ''}">
 					<span class="text-ink" aria-hidden="true">
@@ -166,8 +168,8 @@
 			{/each}
 		</div>
 
-		<div class="flex-1"></div>
+		<div class="flex-1 lg:hidden"></div>
 
-		<p class="pb-6 pt-8 text-center text-xs text-muted">Powered by WiFiNet</p>
+		<p class="pb-6 pt-8 text-center text-xs text-muted lg:mt-8 lg:pb-0 lg:pt-0">Powered by WiFiNet</p>
 	</div>
 </div>

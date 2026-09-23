@@ -45,10 +45,9 @@
 						</svg>
 					{:else if item.icon === 'buy'}
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M6 2l1.5 4h9L18 2" />
-							<path d="M3.5 6h17l-1.6 11.2a2 2 0 0 1-2 1.8H7.1a2 2 0 0 1-2-1.8L3.5 6z" />
-							<circle cx="9.5" cy="21.5" r="0.9" />
-							<circle cx="16.5" cy="21.5" r="0.9" />
+							<circle cx="8" cy="21" r="1.3" fill="currentColor" stroke="none" />
+							<circle cx="18.5" cy="21" r="1.3" fill="currentColor" stroke="none" />
+							<path d="M2.5 2.5h2.2l2.5 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.96-1.6l1.44-7.2H5.6" />
 						</svg>
 					{:else}
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

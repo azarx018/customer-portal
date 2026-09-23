@@ -19,7 +19,7 @@
 	<title>Pembayaran Berhasil — WiFiNet</title>
 </svelte:head>
 
-<div class="flex min-h-[70vh] flex-col items-center justify-center gap-6 px-6 text-center">
+<div class="mx-auto flex min-h-[70vh] w-full max-w-xl flex-col items-center justify-center gap-6 px-6 text-center">
 	<div
 		class="flex h-16 w-16 items-center justify-center rounded-full bg-signal-dim text-signal"
 		aria-hidden="true"

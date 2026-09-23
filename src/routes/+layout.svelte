@@ -17,20 +17,16 @@
 </script>
 
 <!--
-	Wrapper luar: cuma buat nyentering panel di layar lebar (sm ke atas).
-	Tinggi penuh (100dvh) sengaja cuma dipasang SEKALI di panel dalam —
-	sebelumnya dipasang dobel (di sini + di tiap halaman) dan itu yang
-	bikin dokumen jadi lebih tinggi dari viewport, sehingga bottom nav
-	yang fixed nutupin konten yang belum ke-scroll.
+	Shell global — SENGAJA gak lagi "kartu HP yang di-center" kayak sebelumnya.
+	Setiap halaman sekarang yang atur lebar/layout responsif-nya sendiri
+	(lihat /login buat contoh split-screen di layar lebar), jadi konten
+	beneran reflow ngikutin ukuran layar, bukan cuma jarak kiri-kanan yang
+	nambah. Shell ini cuma nyediain background + tempat bottom nav.
 -->
-<div class="flex justify-center bg-backdrop min-[28rem]:py-10">
-	<div
-		class="flex min-h-[100dvh] w-full max-w-md flex-col bg-paper min-[28rem]:min-h-0 min-[28rem]:overflow-hidden min-[28rem]:rounded-[32px] min-[28rem]:border min-[28rem]:border-line min-[28rem]:shadow-floating"
-	>
-		<main class={showBottomNav ? 'pb-28' : ''}>
-			<slot />
-		</main>
-	</div>
+<div class="min-h-[100dvh] bg-paper">
+	<main class={showBottomNav ? 'pb-28' : ''}>
+		<slot />
+	</main>
 
 	{#if showBottomNav}
 		<BottomNav />
