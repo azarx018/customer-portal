@@ -56,10 +56,10 @@
 		<ProgressBar value={progress} tone={isLow ? 'danger' : 'signal'} />
 
 		<!-- Grid stat kecil — digabung biar ringkas, bukan baris satu-satu -->
-		<div class="grid grid-cols-2 gap-3 rounded-2xl bg-paper p-3">
+		<div class="grid grid-cols-2 gap-3 rounded-2xl bg-paper p-3 text-center">
 			<div>
 				<p class="text-[11px] text-muted">Kecepatan</p>
-				<p class="mt-0.5 flex items-center gap-1 text-sm font-medium text-ink">
+				<p class="mt-0.5 flex items-center justify-center gap-1 text-sm font-medium text-ink">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-muted">
 						<path d="M4 15a8 8 0 0 1 16 0" />
 						<path d="M12 15l4-5" />
@@ -70,7 +70,7 @@
 			{#if session.dataUsedMB !== undefined}
 				<div>
 					<p class="text-[11px] text-muted">Data Terpakai</p>
-					<p class="mt-0.5 flex items-center gap-1 text-sm font-medium text-ink">
+					<p class="mt-0.5 flex items-center justify-center gap-1 text-sm font-medium text-ink">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-muted">
 							<path d="M12 3v12" />
 							<path d="M7 10l5 5 5-5" />
@@ -83,7 +83,7 @@
 			{#if session.connectedAt}
 				<div class="col-span-2 border-t border-line pt-3">
 					<p class="text-[11px] text-muted">Terhubung Sejak</p>
-					<p class="mt-0.5 flex items-center gap-1 text-sm font-medium text-ink">
+					<p class="mt-0.5 flex items-center justify-center gap-1 text-sm font-medium text-ink">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-muted">
 							<circle cx="12" cy="12" r="9" />
 							<path d="M12 7v5l3 3" />

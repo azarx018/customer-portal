@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import Logo from '$lib/components/brand/Logo.svelte';
 	import AuthTabs from '$lib/components/auth/AuthTabs.svelte';
@@ -6,7 +7,8 @@
 	import MemberLoginForm from '$lib/components/auth/MemberLoginForm.svelte';
 	import TrustRow from '$lib/components/ui/TrustRow.svelte';
 	import { authStore } from '$lib/stores/authStore';
-	import type { AuthMode, AuthSession } from '$lib/types';
+	import { sessionService } from '$lib/services/sessionService';
+	import type { AuthMode, AuthSession, SessionState } from '$lib/types';
 
 	let mode: AuthMode = 'voucher';
 
@@ -14,6 +16,33 @@
 		authStore.login(event.detail);
 		goto('/status');
 	}
+
+	// Badge status jaringan — bukan teks statis, nge-refleksiin state sesi
+	// asli (nanti dari GET /session). Default 'trial-active' dipakai sebelum
+	// data kebaca, karena itu emang state normal saat device baru connect.
+	let networkState: SessionState = 'trial-active';
+	let networkSpeed = '';
+
+	onMount(async () => {
+		try {
+			const session = await sessionService.getSession();
+			networkState = session.state;
+			networkSpeed = session.speed;
+		} catch {
+			// gagal fetch -> biarin default trial-active, jangan nampilin badge error yang salah
+		}
+	});
+
+	$: statusBadge = (() => {
+		switch (networkState) {
+			case 'paid-active':
+				return { label: `Aktif · ${networkSpeed}`, dot: 'bg-signal' };
+			case 'expired':
+				return { label: 'Disconnect', dot: 'bg-danger' };
+			default:
+				return { label: 'Trial', dot: 'bg-gold' };
+		}
+	})();
 
 	const benefits = [
 		{ label: 'Koneksi Stabil', icon: 'bolt' },
@@ -59,8 +88,8 @@
 		<div class="relative flex items-start justify-between">
 			<Logo variant="light" />
 			<span class="flex items-center gap-1.5 rounded-full bg-paper/10 px-3 py-1.5 text-xs font-medium text-paper/90">
-				<span class="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden="true"></span>
-				Layanan Aktif
+				<span class="h-1.5 w-1.5 rounded-full {statusBadge.dot}" aria-hidden="true"></span>
+				{statusBadge.label}
 			</span>
 		</div>
 
