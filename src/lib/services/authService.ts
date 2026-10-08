@@ -1,14 +1,21 @@
-import { mockAuthService } from '$lib/mock/mockAuthService';
+import { api, saveClient, type ApiAuthSession } from '$lib/api';
 import type { AuthSession } from '$lib/types';
 
-// Saat backend siap, ganti body fungsi di sini untuk memanggil
-// POST /api/auth/voucher dan /api/auth/member — komponen (LoginForm dll)
-// tidak perlu diubah sama sekali.
+// Integrasi MikroTik: validasi voucher/member via backend portal (server.py)
+// yang bicara ke RouterOS API. Komponen tidak berubah — kontrak AuthSession sama.
 export const authService = {
-	loginVoucher(code: string): Promise<AuthSession> {
-		return mockAuthService.loginVoucher(code);
+	async loginVoucher(code: string): Promise<AuthSession> {
+		const { session } = await api.authVoucher(code);
+		saveClient(session.ip, session.mac);
+		return toAuthSession(session);
 	},
-	loginMember(username: string, password: string): Promise<AuthSession> {
-		return mockAuthService.loginMember(username, password);
+	async loginMember(username: string, password: string): Promise<AuthSession> {
+		const { session } = await api.authMember(username, password);
+		saveClient(session.ip, session.mac);
+		return toAuthSession(session);
 	}
 };
+
+function toAuthSession(s: ApiAuthSession): AuthSession {
+	return { token: s.token, source: s.source, displayName: s.displayName };
+}
